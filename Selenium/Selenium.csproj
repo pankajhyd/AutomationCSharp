@@ -56,6 +56,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Test\TestScripts\InputForms.cs" />
+    <Compile Include="Test\TestScripts\DatePickers.cs" />
+    <Compile Include="Test\TestScripts\Table.cs" />
+    <Compile Include="Test\TestScripts\ProgressBarsSliders.cs" />
+    <Compile Include="Test\TestScripts\AlertsModals.cs" />
+    <Compile Include="Test\TestScripts\ListBox.cs" />
+    <Compile Include="Test\TestScripts\Others.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -76,7 +83,6 @@
     <Folder Include="Automation_Accelarator\WebServices\" />
     <Folder Include="Test\TestData\" />
     <Folder Include="Test\TestReports\" />
-    <Folder Include="Test\TestScripts\" />
     <Folder Include="Test\TestWorkflows\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
