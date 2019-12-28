@@ -1,20 +1,22 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Selenium.Automation_Accelarator.ActionEngine;
+using Selenium.Automation_Accelarator.TestEngine;
 using Selenium.Test.TestWorkflows;
 using System.Threading;
 
 namespace Selenium.Test.TestScripts
 {
     [TestClass]
-    public class InputForms:BaseClass
+    public class InputForms:ActionEngine
     {
-        string strBrowser = "chrome";
+        string strBrowser = "firefox";
         [TestMethod]
          public void Simple_Form_Demo()
         {
             string strURL = "https://www.seleniumeasy.com/test/basic-first-form-demo.html";
             fnOpenURL(strBrowser, strURL);
-            Thread.Sleep(10000);
-            inputform.fnVerifySimpleFormDemoMessage("Sreyash");
+            BaseClass.inputform.fnVerifySimpleFormDemoMessage("Sreyash");
+            BaseClass.inputform.fnVerifySimpleDemoAdd("5", "8");
             fnCloseBrowser();
         }
         [TestMethod]

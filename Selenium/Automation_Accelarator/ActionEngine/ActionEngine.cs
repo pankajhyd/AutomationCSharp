@@ -12,11 +12,11 @@ namespace Selenium.Automation_Accelarator.ActionEngine
 {
     public class ActionEngine:TestEngine.TestEngine
     {
-        public void fnOpenURL(String strBrowser,String strURL)
+        public static IWebDriver driver = null;
+         public void fnOpenURL(String strBrowser,String strURL)
         {
-            fnOpenBrowser(strBrowser);
-            Thread.Sleep(1000);
-            driver.Navigate().GoToUrl(strURL);
+            ActionEngine.driver=fnOpenBrowser(strBrowser);
+            ActionEngine.driver.Navigate().GoToUrl(strURL);
         }
     }
 }
