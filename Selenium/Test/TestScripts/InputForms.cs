@@ -1,14 +1,21 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Selenium.Test.TestWorkflows;
+using System.Threading;
 
 namespace Selenium.Test.TestScripts
 {
     [TestClass]
-    public class InputForms
+    public class InputForms:BaseClass
     {
+        string strBrowser = "chrome";
         [TestMethod]
-        public void Simple_Form_Demo()
+         public void Simple_Form_Demo()
         {
+            string strURL = "https://www.seleniumeasy.com/test/basic-first-form-demo.html";
+            fnOpenURL(strBrowser, strURL);
+            Thread.Sleep(10000);
+            inputform.fnVerifySimpleFormDemoMessage("Sreyash");
+            fnCloseBrowser();
         }
         [TestMethod]
         public void Checkbox_Demo()
