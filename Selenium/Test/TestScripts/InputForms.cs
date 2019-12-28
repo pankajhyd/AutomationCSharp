@@ -22,6 +22,11 @@ namespace Selenium.Test.TestScripts
         [TestMethod]
         public void Checkbox_Demo()
         {
+            string strURL = "https://www.seleniumeasy.com/test/basic-checkbox-demo.html";
+            fnOpenURL(strBrowser, strURL);
+            BaseClass.inputform.fnCheckbox_Demo();
+            BaseClass.inputform.fnCheckbox_DemoSelectAll();
+            fnCloseBrowser();
         }
         [TestMethod]
         public void Radio_Buttons_Demo()

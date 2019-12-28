@@ -28,6 +28,7 @@ namespace Selenium.Automation_Accelarator.TestEngine
             {
                 driver.Manage().Timeouts().ImplicitWait=TimeSpan.FromSeconds(10000);
                 driver.Manage().Window.Maximize();
+                Console.WriteLine(strBrowserName.ToUpper() + " : Browser Started Successfully");
             }
             return driver;
         }
