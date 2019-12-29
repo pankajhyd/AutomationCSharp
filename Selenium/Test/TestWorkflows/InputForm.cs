@@ -8,6 +8,7 @@ using OpenQA.Selenium;
 using Selenium.Automation_Accelarator.ActionEngine;
 using Selenium.Automation_Accelarator.TestEngine;
 using System.Threading;
+using OpenQA.Selenium.Support.UI;
 namespace Selenium.Test.TestWorkflows
 {
     public class InputForm : ActionEngine
@@ -24,6 +25,7 @@ namespace Selenium.Test.TestWorkflows
         By pannelBody = By.ClassName("panel-body");
         By groupSex = By.XPath(".//*[@id='easycont']/div/div[2]/div[2]/div[2]/div[1]");
         By groupAge = By.XPath("//*[@id='easycont']/div/div[2]/div[2]/div[2]/div[2]");
+        By comboDemo = By.Id("select-demo");
         public void fnVerifySimpleFormDemoMessage(string strMessage)
         {
             ActionEngine.driver.FindElement(userMessage).SendKeys(strMessage);
@@ -201,6 +203,32 @@ namespace Selenium.Test.TestWorkflows
                 Console.WriteLine("5-15 is not Selected");
             }
             Thread.Sleep(10000);
+        }
+
+        public void fnSelect_Dropdown_List()
+        {
+            IWebElement element = driver.FindElement(comboDemo);
+            SelectElement objSelect = new SelectElement(element);
+            IList<IWebElement> eleList = objSelect.Options;
+            Console.WriteLine("Total Option Found ==> " + eleList.Count);
+            for(int i=0;i<eleList.Count;i++)
+            {
+                Console.WriteLine(eleList.ElementAt(i).Text);
+            }
+            Console.WriteLine("Select By Value");
+            objSelect.SelectByText("Monday");
+            string strText = objSelect.SelectedOption.Text;
+            Console.WriteLine("Selected Option ==> " + strText);
+            Console.WriteLine("Selected By Index");
+            objSelect.SelectByIndex(4);
+            strText = objSelect.SelectedOption.Text;
+            Console.WriteLine("Selected Option ==> " + strText);
+            Console.WriteLine("Selected By Value");
+            objSelect.SelectByValue("Saturday");
+            strText = objSelect.SelectedOption.Text;
+            Console.WriteLine("Selected Option ==> " + strText);
+            strText = objSelect.IsMultiple.ToString();
+            Console.WriteLine("Selected Option ==> " + strText);
         }
 
     }

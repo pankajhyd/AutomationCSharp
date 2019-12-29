@@ -39,6 +39,10 @@ namespace Selenium.Test.TestScripts
         [TestMethod]
         public void Select_Dropdown_List()
         {
+            string strURL = "https://www.seleniumeasy.com/test/basic-select-dropdown-demo.html";
+            fnOpenURL(strBrowser, strURL);
+            BaseClass.inputform.fnSelect_Dropdown_List();
+            fnCloseBrowser();
         }
         [TestMethod]
         public void Input_Form_Submit()
