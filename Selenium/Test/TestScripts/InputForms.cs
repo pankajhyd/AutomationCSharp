@@ -9,7 +9,7 @@ namespace Selenium.Test.TestScripts
     [TestClass]
     public class InputForms:ActionEngine
     {
-        string strBrowser = "firefox";
+        string strBrowser = "chrome";
         [TestMethod]
          public void Simple_Form_Demo()
         {
@@ -31,6 +31,10 @@ namespace Selenium.Test.TestScripts
         [TestMethod]
         public void Radio_Buttons_Demo()
         {
+            string strURL = "https://www.seleniumeasy.com/test/basic-radiobutton-demo.html";
+            fnOpenURL(strBrowser, strURL);
+            BaseClass.inputform.fnRadio_Buttons_Demo();
+            fnCloseBrowser();
         }
         [TestMethod]
         public void Select_Dropdown_List()

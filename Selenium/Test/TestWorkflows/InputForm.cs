@@ -22,6 +22,8 @@ namespace Selenium.Test.TestWorkflows
         By checkBoxAge = By.Id("isAgeSelected");
         By ageVerify = By.Id("txtAge");
         By pannelBody = By.ClassName("panel-body");
+        By groupSex = By.XPath(".//*[@id='easycont']/div/div[2]/div[2]/div[2]/div[1]");
+        By groupAge = By.XPath("//*[@id='easycont']/div/div[2]/div[2]/div[2]/div[2]");
         public void fnVerifySimpleFormDemoMessage(string strMessage)
         {
             ActionEngine.driver.FindElement(userMessage).SendKeys(strMessage);
@@ -130,5 +132,76 @@ namespace Selenium.Test.TestWorkflows
 
 
         }
+
+        public void fnRadio_Buttons_Demo()
+        {
+            IWebElement element = driver.FindElements(pannelBody).ElementAt(1);
+            IList<IWebElement> eleList = element.FindElements(By.ClassName("radio-inline"));
+            Console.WriteLine("Total Radio Button Available ==> " + eleList.Count);
+            for (int i=0;i<eleList.Count;i++)
+            {
+                Console.WriteLine("Element at " + (i + 1) +" ==> " + eleList.ElementAt(i).Text);
+            }
+            Console.WriteLine("Select Male");
+            eleList.ElementAt(0).Click();
+            Thread.Sleep(10000);
+            Boolean blnStatus = eleList.ElementAt(0).FindElement(By.TagName("input")).Selected;
+            if(blnStatus)
+            {
+                Console.WriteLine("Male is Selected");
+            }
+            else
+            {
+                Console.WriteLine("Male is not Selected");
+            }
+            Console.WriteLine("Select Female");
+            eleList.ElementAt(1).Click();
+            Boolean blnStatus1 = eleList.ElementAt(1).FindElement(By.TagName("input")).Selected;
+            if (blnStatus1)
+            {
+                Console.WriteLine("Female is Selected");
+            }
+            else
+            {
+                Console.WriteLine("Female is not Selected");
+            }
+            Console.WriteLine("Group Radio Button");
+            IList<IWebElement> elementGroup = driver.FindElement(groupSex).FindElements(By.ClassName("radio-inline"));
+            Console.WriteLine("Total Gender Found ==> " + elementGroup.Count);
+            for(int i=0;i<elementGroup.Count;i++)
+            {
+                Console.WriteLine("Element " + (i+1) +"  => " + elementGroup.ElementAt(i).Text);
+            }
+            Console.WriteLine("Select Male from gender Grpoup");
+            elementGroup.ElementAt(0).Click();
+            Boolean blnGroupSex = elementGroup.ElementAt(0).FindElement(By.TagName("input")).Selected;
+            if (blnGroupSex)
+            {
+                Console.WriteLine("Male is Selected");
+            }
+            else
+            {
+                Console.WriteLine("Male is not Selected");
+            }
+            IList<IWebElement> eleAge = driver.FindElement(groupAge).FindElements(By.ClassName("radio-inline"));
+            Console.WriteLine("Total Age Group Found ==> " + eleAge.Count);
+            for(int i=0;i<eleAge.Count;i++)
+            {
+                Console.WriteLine("Age Goup ==> " + (i + 1) + "  ==> " +eleAge.ElementAt(i).Text);
+            }
+            Console.WriteLine("Select 5-15");
+            eleAge.ElementAt(1).Click();
+            Boolean blnStausAge = eleAge.ElementAt(1).FindElement(By.TagName("input")).Selected;
+            if (blnStausAge)
+            {
+                Console.WriteLine("5-15 is Selected");
+            }
+            else
+            {
+                Console.WriteLine("5-15 is not Selected");
+            }
+            Thread.Sleep(10000);
+        }
+
     }
 }
