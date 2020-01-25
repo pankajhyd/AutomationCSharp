@@ -54,6 +54,9 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="RestSharp, Version=106.0.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.10.1\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="SeleniumExtras.PageObjects, Version=3.11.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DotNetSeleniumExtras.PageObjects.3.11.0\lib\net45\SeleniumExtras.PageObjects.dll</HintPath>
     </Reference>
@@ -61,6 +64,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="WebDriver, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
     </Reference>
@@ -72,6 +76,8 @@
     <Compile Include="Automation_Accelarator\ActionEngine\ActionEngine.cs" />
     <Compile Include="Automation_Accelarator\TestEngine\TestEngine.cs" />
     <Compile Include="Automation_Accelarator\Utilities\ReadConfig.cs" />
+    <Compile Include="Automation_Accelarator\WebServices\RestSharpHelper.cs" />
+    <Compile Include="Test\TestScripts\Android_App\HomeBudgetApp.cs" />
     <Compile Include="Test\TestScripts\Android_Chrome\FlipkartWeb.cs" />
     <Compile Include="Test\TestScripts\Web\InputForms.cs" />
     <Compile Include="Test\TestScripts\Web\DatePickers.cs" />
@@ -80,8 +86,15 @@
     <Compile Include="Test\TestScripts\Web\AlertsModals.cs" />
     <Compile Include="Test\TestScripts\Web\ListBox.cs" />
     <Compile Include="Test\TestScripts\Web\Others.cs" />
-    <Compile Include="Test\TestWorkflows\BaseClass.cs" />
-    <Compile Include="Test\TestWorkflows\InputForm.cs" />
+    <Compile Include="Test\TestWorkflows\Android_App\BaseClass.cs" />
+    <Compile Include="Test\TestWorkflows\Android_App\HomeBudgetAppWorkflow.cs" />
+    <Compile Include="Test\TestWorkflows\Web\BaseClass.cs" />
+    <Compile Include="Test\TestWorkflows\Web\InputForm.cs" />
+    <Compile Include="Test\WebServicesTest\ReqresTest\T.cs" />
+    <Compile Include="Test\WebServicesTest\ReqresTest\WebServicesTest.cs" />
+    <Compile Include="Test\WebServicesWorkflow\Reqres\Get\ReqresUserDetails.cs" />
+    <Compile Include="Test\WebServicesWorkflow\Reqres\Get\ReqresUserList.cs" />
+    <Compile Include="Test\WebServicesWorkflow\Reqres\POST\CreateUser.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -97,10 +110,9 @@
     <Folder Include="Automation_Accelarator\Reports\" />
     <Folder Include="Automation_Accelarator\Slack\" />
     <Folder Include="Automation_Accelarator\TestManagement\" />
-    <Folder Include="Automation_Accelarator\WebServices\" />
     <Folder Include="Test\TestData\" />
     <Folder Include="Test\TestReports\" />
-    <Folder Include="Test\TestScripts\Android_App\" />
+    <Folder Include="Test\TestWorkflows\Android_Chrome\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Automation_Accelarator\Config\Lib\chromedriver.exe" />

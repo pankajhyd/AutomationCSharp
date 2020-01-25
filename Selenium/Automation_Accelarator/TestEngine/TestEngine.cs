@@ -21,7 +21,7 @@ namespace Selenium.Automation_Accelarator.TestEngine
     {
         public RemoteWebDriver driver = null;
         AppiumLocalService service = null;
-        public IWebDriver fnOpenBrowser(string strAppType)
+        public IWebDriver fnGetDriver(string strAppType)
         {
             if(strAppType.ToLower().StartsWith("chrome"))
             {

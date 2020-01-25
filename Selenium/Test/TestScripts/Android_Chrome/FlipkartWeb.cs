@@ -10,8 +10,7 @@ namespace Selenium.Test.TestScripts.Android_Chrome
         public void fnFlipKart()
         {
             string strBrowser = "androidchrome";
-            //string strURL = "https://www.flipkart.com/";
-            string strURL = "https://www.voot.com/";
+            string strURL = "https://www.flipkart.com/";            
             fnOpenURL(strBrowser, strURL);
 
         }
